@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model BizNus {
+  workSpaceName String @unique @id
+  name String
+  users User[]
+  products Product[]
+  orders Order[]
+  customers Customer[]
+  money Int @default(0)
+}
+
+model User {
+  email String @unique @id
+  username String @unique
+  name String
+  bizNuses BizNus[]
+  salary Int @default(0)
+}
+
+model Product {
+  id String @unique @id
+  name String
+  description String
+  price Int
+  bizNus BizNus @relation(fields: [bizNusId], references: [workSpaceName])
+  bizNusId String
+  orders Order[]
+  currentStock Int @default(0)
+  @@index([bizNusId])
+}
+
+model Order {
+  id String @unique @id
+  bizNus BizNus @relation(fields: [bizNusId], references: [workSpaceName])
+  product Product @relation(fields: [productId], references: [id])
+  customer Customer @relation(fields: [customerId], references: [id])
+  bizNusId String
+  customerId String
+  productId String
+  @@index([bizNusId])
+  @@index([productId])
+  @@index([customerId])
+}
+
+model Customer {
+  id String @unique @id
+  name String
+  email String
+  phone String
+  bizNus BizNus @relation(fields: [bizNusId], references: [workSpaceName])
+  bizNusId String
+  orders Order[]
+  @@index([bizNusId])
+}
