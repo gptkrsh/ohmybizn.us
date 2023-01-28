@@ -1,21 +1,8 @@
----
-const sections = [
-	'Features',
-	'Pricing',
-	'About'
-]
----
-
 <nav class="h-16 w-screen flex items-center justify-between px-8 md:px-20 lg:px-32 animate-in fade-in animate-out fade-out">
 	<div>
 		<a href="/"><h3 class="m-0">Oh My Biznus</h3></a>
 	</div>
-	<div class="items-center space-x-8 hidden md:flex">
-		{sections.map(section => (
-			<a class="transition-all hover:underline" href={'/#' + section.toLowerCase()}>{section}</a>
-		))}
-	</div>
 	<div>
-		<a href="/login" class="bg-slate-800 hover:bg-slate-700 hover:text-white font-bold py-2 px-4 rounded transition-colors">Login</a>
+		<a href="https://app.ohmybizn.us/api/auth/login" class="bg-slate-900  hover:bg-slate-700 hover:text-white font-bold py-2 px-4 rounded transition-all">Login</a>
 	</div>
 </nav>
