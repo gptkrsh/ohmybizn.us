@@ -17,13 +17,14 @@ import Navbar from "../components/Layout/Navbar.astro";
         creator: "@krshkun",
       }}
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body
-    class="bg-slate-800 min-h-screen !text-gray-300 prose prose-invert prose-a:no-underline max-w-screen"
+    class="bg-slate-800 min-h-screen !text-gray-300 prose prose-invert prose-a:no-underline !max-w-screen overflow-x-hidden"
   >
-    <div class="-z-50 overflow-hidden max-w-screen">
+    <div class="fixed -z-1 overflow-hidden inset-0 w-screen h-screen">
       <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        class="w-full h-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
       >
         <defs>
@@ -52,7 +53,7 @@ import Navbar from "../components/Layout/Navbar.astro";
       <svg
         viewBox="0 0 1108 632"
         aria-hidden="true"
-        class="absolute top-10 -z-10 w-[69.25rem] max-w-screen overflow-hidden transform-gpu blur-3xl"
+        class="fixed top-0 left-0 -z-10 max-w-full overflow-hidden blur-3xl"
       >
         <path
           fill="url(#175c433f-44f6-4d59-93f0-c5c51ad5566d)"
@@ -76,5 +77,6 @@ import Navbar from "../components/Layout/Navbar.astro";
     </div>
     <Navbar />
     <slot />
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="AOS.init();console.log('AOS Inited')"  />
   </body>
 </html>

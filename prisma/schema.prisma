@@ -23,7 +23,7 @@ model BizNus {
 
 model User {
   email String @unique @id
-  username String @unique
+  password String
   name String
   bizNuses BizNus[]
   salary Int @default(0)
