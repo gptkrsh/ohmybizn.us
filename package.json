@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^2.0.1",
-    "@astrojs/tailwind": "^3.0.0",
+    "@astrojs/tailwind": "^3.0.1",
     "@astrojs/vercel": "^3.0.0",
     "@prisma/client": "4.9.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
